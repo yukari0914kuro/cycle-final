@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: white;
+}
+
+/* 手前のペットボトル */
+#bottle {
+    position: absolute;
+
+    width: 480px;
+    max-width: 85vw;
+
+    left: 50%;
+    top: 55%;
+
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+
+    /* 動きを少し滑らかに描画させる */
+    will-change: transform, opacity;
+}
+
+/* 奥にあるリサイクルボックス */
+#box {
+    position: absolute;
+
+    /* 最小200px、基本は画面幅の55%、最大380px */
+    width: clamp(200px, 55vw, 380px);
+
+    left: 50%;
+    bottom: 7%;
+
+    transform: translateX(-50%);
+
+    /* ボトルが箱の後ろへ入るようにする */
+    z-index: 2;
+
+    pointer-events: none;
+}
